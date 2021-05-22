@@ -2372,11 +2372,15 @@ function createMenu(menu) {
 checkboxSwitchTheme.addEventListener('change', changeTheme);
 
 function changeTheme() {
+  console.log(checkboxSwitchTheme.checked);
+
   if (checkboxSwitchTheme.checked) {
     body.classList.add('dark-theme');
+    body.classList.remove('light-theme');
     localStorage.setItem('theme', 'dark-theme');
   } else {
     body.classList.add('light-theme');
+    body.classList.remove('dark-theme');
     localStorage.setItem('theme', 'light-theme');
   }
 
@@ -2384,7 +2388,8 @@ function changeTheme() {
 }
 
 if (localStorage.getItem('theme') === 'dark-theme') {
-  body.classList.add('dark-theme');
+  body.classList.add('dark-theme'); // body.classList.remove('light-theme');
+
   checkboxSwitchTheme.checked = true;
 }
 },{"../src/menu.json":"menu.json","../src/templates/cards.hbs":"templates/cards.hbs"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
